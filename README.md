@@ -59,7 +59,7 @@ The network jointly optimizes a smooth displacement field (via a 4x128 Tanh MLP)
 
 **Key Features:**
 * **Volumetric Cage (Soft-Loss Penalty):** Rather than using a hard spatial cutoff $\psi(r)$ in the forward pass, which generates fictitious body forces that violate Cauchy momentum equations, we apply a Gaussian volumetric cage as a soft penalty in the loss function. This forces the smooth MLP to zero near the tip, allowing the Williams basis to dominate the singularity while preserving perfect PDE equilibrium.
-* **Positive Constrained Amplitude:** The extracted stress intensity factor is constrained via a softplus activation — $A = \frac{K_I}{2\mu} = \mathrm{softplus}(K_{I_{\mathrm{raw}}})$ — to guarantee physical positivity under tensile loading.
+* **Positive Constrained Amplitude:** The extracted stress intensity factor is constrained via a softplus activation $A = \frac{K_I}{2\mu} = \mathrm{softplus}(K_{I_{\mathrm{raw}}})$ to guarantee physical positivity under tensile loading.
 ---
 
 ## Stage 3: FEniCS Validation
