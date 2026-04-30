@@ -13,7 +13,7 @@ Designed for Mode I fracture analysis in concrete infrastructure, the system tra
 ## System Architecture
 
 *(Placeholder: Upload your end-to-end flowchart or architecture diagram here and link it)*
-`![System Architecture](link_to_your_image.png)`
+`![System Architecture](images/simple_architecture_flowchart.png)`
 
 The pipeline operates in two primary stages: geometry extraction via CV, and linear elastic PDE optimization via PINN.
 
