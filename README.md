@@ -46,12 +46,11 @@ The concrete is modeled as a homogeneous, isotropic solid ($E = 30,000$ MPa, $\n
 $$\sigma_{xx} = \lambda\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right) + 2\mu \frac{\partial u}{\partial x}$$
 $$\sigma_{yy} = \lambda\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right) + 2\mu \frac{\partial v}{\partial y}$$
 $$\sigma_{xy} = \mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)$$
-
 ### Williams Near-Tip Expansion
 To capture the singularity without spectral bias, the $O(\sqrt{r})$ Mode I leading-order displacement field derived by Williams (1957) is embedded as a hardcoded basis:
 $$u_w = \sqrt{\frac{r}{2\pi}} \cos\left(\frac{\theta}{2}\right) \left(\kappa - 1 + 2\sin^2\left(\frac{\theta}{2}\right)\right)$$
 $$v_w = \sqrt{\frac{r}{2\pi}} \sin\left(\frac{\theta}{2}\right) \left(\kappa + 1 - 2\cos^2\left(\frac{\theta}{2}\right)\right)$$
-*(Where $\kappa = 3 - 4\nu$ for plane strain)*
+(Where $\kappa = 3 - 4\nu$ for plane strain)
 
 ### Network Architecture
 The network jointly optimizes a smooth displacement field (via a 4x128 Tanh MLP) and a learnable scalar amplitude ($K_I$). 
@@ -60,8 +59,7 @@ The network jointly optimizes a smooth displacement field (via a 4x128 Tanh MLP)
 
 **Key Features:**
 * **Volumetric Cage (Soft-Loss Penalty):** Rather than using a hard spatial cutoff $\psi(r)$ in the forward pass, which generates fictitious body forces that violate Cauchy momentum equations, we apply a Gaussian volumetric cage as a soft penalty in the loss function. This forces the smooth MLP to zero near the tip, allowing the Williams basis to dominate the singularity while preserving perfect PDE equilibrium.
-* **Positive Constrained Amplitude:** The extracted stress intensity factor is constrained via a softplus activation ($A = \frac{K_I}{2\mu} = \text{softplus}(K_{I_{\text{raw}}})$) to guarantee physical positivity under tensile loading.
-
+* **Positive Constrained Amplitude:** The extracted stress intensity factor is constrained via a softplus activation — $A = \frac{K_I}{2\mu} = \mathrm{softplus}(K_{I_{\mathrm{raw}}})$ — to guarantee physical positivity under tensile loading.
 ---
 
 ## Stage 3: FEniCS Validation
