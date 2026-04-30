@@ -1,7 +1,7 @@
 # End-to-End Vision-to-PINN Pipeline for Structural Health Monitoring
 
 > **Status: Pre-Publication / Active Research**
-> Please note: The source code for this project is currently withheld pending publication and approval from the primary investigator. This repository serves as a technical overview of the system architecture, mathematical formulations, and finite-element validation results.
+> Please note: The source code for this project is currently withheld pending publication and approval from my PI. This repository serves as a technical overview of the system architecture, mathematical formulations, and finite-element validation results.
 
 ## Abstract
 This project presents an automated structural assessment system that couples a Computer Vision (CV) geometry extraction pipeline with a mesh-free Physics-Informed Neural Network (PINN) computational backend. 
@@ -60,7 +60,7 @@ The network jointly optimizes a smooth displacement field (via a 4x128 Tanh MLP)
 
 **Key Features:**
 * **Volumetric Cage (Soft-Loss Penalty):** Rather than using a hard spatial cutoff $\psi(r)$ in the forward pass, which generates fictitious body forces that violate Cauchy momentum equations, we apply a Gaussian volumetric cage as a soft penalty in the loss function. This forces the smooth MLP to zero near the tip, allowing the Williams basis to dominate the singularity while preserving perfect PDE equilibrium.
-* **Positive Constrained Amplitude:** The extracted stress intensity factor is constrained via a softplus activation ($A = \frac{K_I}{2\mu} = \text{softplus}(K_{I\_raw})$) to guarantee physical positivity under tensile loading.
+* **Positive Constrained Amplitude:** The extracted stress intensity factor is constrained via a softplus activation ($A = \frac{K_I}{2\mu} = \text{softplus}(K_{I_{\text{raw}}})$) to guarantee physical positivity under tensile loading.
 
 ---
 
@@ -92,4 +92,4 @@ The Param and Williams Fit methods agreed within 1.1%, demonstrating self-consis
 * **Mixed-Mode Implementation:** Upgrade the Williams basis to incorporate Mode II (shear) variables for inclined crack assessment.
 * **Hardware Deployment:** Finalize integration of the CV and PINN pipeline onto the NVIDIA Jetson Orin Nano for edge inference on a rover platform.
 
-For more information, please check out the docs/ section
+For more information, please check out the docs/ section.
