@@ -24,7 +24,8 @@ The CV pipeline acts as a filter, running in five stages to ensure the physics b
 1. **Image Preparation:** The field photograph is converted to grayscale and normalized to eliminate uneven lighting and shadow artifacts.
 2. **Deep Learning Segmentation:** Utilizes a pixel-level deep learning model trained on concrete imagery to extract binary masks of the crack topology, avoiding the inaccuracy of standard bounding boxes.
 3. **Structural Significance Filter:** Automatically computes mean crack width and discards instances below the American Concrete Institute 0.3 mm threshold, filtering out non-structural damage.
-4. **Geometric & Structural Analysis:** * **Skeletonization:** Thins the mask to a 1-pixel centerline to extract exact $(a/W)$ endpoint coordinates.
+4. **Geometric & Structural Analysis:**
+   * **Skeletonization:** Thins the mask to a 1-pixel centerline to extract exact $(a/W)$ endpoint coordinates.
    * **Width Distribution:** Utilizes a distance transform to map the full width profile along the crack.
    * **Load Alignment:** Calculates the dominant orientation and compares it to user-specified applied loads to isolate pure Mode I tensile cracks.
 5. **Fourier Domain Analysis:** Transforms the spatial mask into the frequency domain (2D FFT) to reveal structural data hidden from spatial geometry.
