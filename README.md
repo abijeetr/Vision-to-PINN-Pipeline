@@ -91,3 +91,5 @@ The Param and Williams Fit methods agreed within 1.1%, demonstrating self-consis
 * **Parametric Scaling:** Parameterize the volumetric cage radius ($R_{CUT}$) dynamically based on CV-extracted crack lengths to handle multi-scale damage.
 * **Mixed-Mode Implementation:** Upgrade the Williams basis to incorporate Mode II (shear) variables for inclined crack assessment.
 * **Hardware Deployment:** Finalize integration of the CV and PINN pipeline onto the NVIDIA Jetson Orin Nano for edge inference on a rover platform.
+
+For more information, please check out the docs/ section
