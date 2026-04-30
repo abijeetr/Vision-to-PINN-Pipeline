@@ -50,7 +50,7 @@ $$\sigma_{xy} = \mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\part
 To capture the singularity without spectral bias, the $O(\sqrt{r})$ Mode I leading-order displacement field derived by Williams (1957) is embedded as a hardcoded basis:
 $$u_w = \sqrt{\frac{r}{2\pi}} \cos\left(\frac{\theta}{2}\right) \left(\kappa - 1 + 2\sin^2\left(\frac{\theta}{2}\right)\right)$$
 $$v_w = \sqrt{\frac{r}{2\pi}} \sin\left(\frac{\theta}{2}\right) \left(\kappa + 1 - 2\cos^2\left(\frac{\theta}{2}\right)\right)$$
-*(Where $\kappa = 3 - 4\nu$ for plane strain)*
+*(Where $kappa = 3 - 4\nu$ for plane strain)*
 
 ### Network Architecture
 The network jointly optimizes a smooth displacement field (via a 4x128 Tanh MLP) and a learnable scalar amplitude ($K_I$). 
@@ -71,9 +71,7 @@ The PINN architecture was validated against both the Tada analytical handbook an
 * **Energy Consistency:** The J-integral was evaluated across three concentric annuli ($r = [1,5], [2,9], [3,12]$ mm), yielding a path variation of exactly 0.0%, confirming absolute mesh convergence.
 
 ### Tada Handbook Reference
-The analytical baseline was calculated using the Tada stress intensity handbook:
-$$K_I = \sigma_{app} \sqrt{\pi a} F(a/W)$$
-*(Given $\sigma_{app} = 100$ MPa, $a = 20$ mm, and $F(0.20) = 1.37$)*
+The analytical baseline was calculated using the Tada stress intensity handbook: $K_I = \sigma_{app} \sqrt{\pi a} F(a/W)$ (Given $\sigma_{app} = 100$ MPa, $a = 20$ mm, and $F(0.20) = 1.37$)
 
 ### Results Table (Plane Strain Formulation)
 To verify self-consistency, the PINN extracted $K_I$ via two independent internal methods: the learned network parameter (Param) and a least-squares Williams displacement fit at $r = 6$ mm.
