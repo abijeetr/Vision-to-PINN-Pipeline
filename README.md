@@ -50,7 +50,7 @@ $$\sigma_{xy} = \mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\part
 To capture the singularity without spectral bias, the $O(\sqrt{r})$ Mode I leading-order displacement field derived by Williams (1957) is embedded as a hardcoded basis:
 $$u_w = \sqrt{\frac{r}{2\pi}} \cos\left(\frac{\theta}{2}\right) \left(\kappa - 1 + 2\sin^2\left(\frac{\theta}{2}\right)\right)$$
 $$v_w = \sqrt{\frac{r}{2\pi}} \sin\left(\frac{\theta}{2}\right) \left(\kappa + 1 - 2\cos^2\left(\frac{\theta}{2}\right)\right)$$
-*(Where $kappa = 3 - 4\nu$ for plane strain)*
+*(Where $\kappa = 3 - 4\nu$ for plane strain)*
 
 ### Network Architecture
 The network jointly optimizes a smooth displacement field (via a 4x128 Tanh MLP) and a learnable scalar amplitude ($K_I$). 
